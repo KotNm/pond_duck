@@ -1,4 +1,4 @@
-swim(0,100)
+swim(0,30)
 while(true){
 deg_count = 0;
   while (deg_count <= 360) {
@@ -6,20 +6,22 @@ deg_count = 0;
     if (scan_result <= 70) {
       cannon(deg_count, scan_result);
     } else if (scan_result <= 30) {
-    swim(dig_count+180,100);
+    swim(dig_count+180,30);
     }
     deg_count = (typeof deg_count == 'number' ? deg_count : 0) + 5;
   }
   
-  if (loc_x() <= 10) {
-    swim(30,100);
-  } else if (loc_x() >= 90) {
-    swim(195,100);
+  if (loc_x() <= 20) {
+    stop();
+    swim(30,30);
+  } else if (loc_x() >= 80) {
+    stop();
+    swim(195,30);
   } else if (loc_y() >= 90) {
-    swim(210,100);
+    stop();
+    swim(210,30);
   } else if (loc_y() <= 10) {
-    swim(75,100);
-  } else if (speed() <= 50) {
-    swim(0,100)
+    stop()+
+    swim(75,30);
   }
 }
